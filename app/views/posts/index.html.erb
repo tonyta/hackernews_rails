@@ -1,13 +1,12 @@
 <div class="container">
   <h1>All Posts</h1>
   <ol>
-  <% @posts.each do |post| %>
-    <li>
-      <span class='post-title'><a href="http://<%= post.url %>"><%= post.description %><span> <span class='post-info'>(<%= post.url %>)</span></a><br />
-      <span class='post-info'>
-        by <a href="/users/<%= post.user.id %>"><%= post.user.username %></a> | <a href="/posts/<%= post.id %>"><%= post.comments.length %> comments</a>
-      </span>
-    </li>
-  <% end %>
-</ol>
+    <% @posts.each do |post| %>
+      <li>
+        <span class='post-title'><%= link_to post.description, post %></span> <span class='post-info'><%= link_to "(#{post.url})", post %></span>
+        <br />
+        <span class='post-info'>by <%= link_to post.user.username, post.user %> | <%= link_to "#{post.comments.length} comments", post %></span>
+      </li>
+    <% end %>
+  </ol>
 </div>
