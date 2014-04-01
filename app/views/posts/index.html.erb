@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Posts</h1>
+  <h1>All <%= @user.username if @user %> Posts</h1>
   <ol>
     <% @posts.each do |post| %>
       <li>

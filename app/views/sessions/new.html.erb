@@ -3,11 +3,6 @@
 
   <p id='notice'><%= notice %></p>
 
-  <% if @user && @user.errors.any? %>
-  <div id='error_explanation'>
-    <p>Username and Password combination not found.</p>
-  </div>
-  <% end %>
 
   <%= form_for :session do |f| %>
     <%= f.text_field :username, placeholder: 'username' %><br>
@@ -15,14 +10,24 @@
     <%= f.submit 'login' %>
   <% end %>
 
-  <br />
   <h4>Create Account</h4>
-  <form action="/users" method="post">
-    <p><label>username: <input type="text" name="username" /></label></p>
-    <p><label>password: <input type="password" name="password" /></label></p>
-    <p><input class='shitty-button' type="submit" value="create account" /></p>
-  </form>
+
+  <% if @user && @user.errors.any? %>
+  <div id='error_explanation'>
+    <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being created:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= form_for User.new do |f| %>
+    <%= f.text_field :username, placeholder: 'username' %><br>
+    <%= f.password_field :password, placeholder: 'passwerrrd' %><br>
+    <%= f.password_field :password_confirmation, placeholder: 'confirm passwerrrd' %><br>
+    <%= f.submit 'create user' %>
+  <% end %>
+
 </div>
-<script>
-  $('#header').hide();
-</script>

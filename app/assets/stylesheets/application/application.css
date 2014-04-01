@@ -1,0 +1,66 @@
+.container {
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 830px;
+  padding: 0px 5px 20px 5px;
+  /*border: 1px dotted black;*/
+  background-color: rgb(246, 246, 239);
+}
+
+#header {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 0;
+  width: 800px;
+  padding: 2px 20px;
+  /*border: 1px dotted black;*/
+  background-color: #ff6600;
+}
+
+th {
+  text-align: left;
+}
+
+.post-title a {
+  color: black;
+  text-decoration: none;
+}
+
+.post-info {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.post-info a {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.comment-info a {
+  font-size: 0.8em;
+  color: gray;
+  text-decoration: none;
+}
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+ol {
+  margin: 0;
+}
+
+.shitty-login {
+  margin-left: 10px;
+  font-family: serif;
+}
+
+.shitty-login h4 {
+  margin-top: 10px;
+}
+
+.shitty-button {
+  -webkit-appearance: push-button;
+}

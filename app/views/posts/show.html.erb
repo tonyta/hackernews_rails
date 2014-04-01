@@ -4,7 +4,7 @@
 
   <%= form_for [@post, Comment.new] do |f| %>
     <%= f.text_area :text, cols: "45", rows: "5" %>
-    <%= f.hidden_field :user_id, value: 101 %><br>
+    <%= f.hidden_field :user_id, value: current_user.id %><br>
     <%= f.submit %>
   <% end %>
   <p id='notice'><%= notice %></p>

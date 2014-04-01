@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>All of yo comments</h2>
+  <ul class="comment-list">
+  <% @comments.each do |comment| %>
+    <li><span class="comment-info"><%= link_to comment.post.description, comment.post%></span><br />
+    <%= comment.text %></li>
+  <% end %>
+</ul>
+</div>
