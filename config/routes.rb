@@ -8,5 +8,7 @@ HackerNews::Application.routes.draw do
     resources :comments
   end
 
-  resources :comments
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
+  post '/login' => 'sessions#create'
 end

@@ -1,0 +1,29 @@
+<div class="container">
+  <%= link_to @post.description, "http://#{@post.url}" %> <span class='post-info'><%= link_to "(#{@post.url})", "http://#{@post.url}" %></span><br />
+  <span class='post-info'>by <%= link_to @post.user.username, @post.user %> | <%= link_to "#{@post.comments.count} comments", @post %></span>
+
+  <%= form_for [@post, Comment.new] do |f| %>
+    <%= f.text_area :text, cols: "45", rows: "5" %>
+    <%= f.hidden_field :user_id, value: 101 %><br>
+    <%= f.submit %>
+  <% end %>
+  <p id='notice'><%= notice %></p>
+
+  <% if @comment && @comment.errors.any? %>
+  <div id='error_explanation'>
+    <h2><%= pluralize(@comment.errors.count, 'error') %> prohibited this comment from being posted:</h2>
+    <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <ul class="comment-list">
+  <% @post.comments.each do |comment| %>
+    <p><li><span class="comment-info"><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a></span><br />
+    <%= comment.text %></li></p>
+  <% end %>
+</ul>
+</div>
